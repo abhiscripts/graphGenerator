@@ -15,7 +15,7 @@ function GraphComponent() {
       : inputData.selectedLabels,
     datasets: [
       {
-        label: "Number of Votes",
+        label: "",
         data: inputData.finalData.data.length
           ? inputData.finalData.data
           : inputData.selectedLabels.map(

@@ -7,6 +7,8 @@ import {
   label_selector,
   update_graph_value,
   update_curr_graph_value,
+  add_labels_option,
+  update_preview
 } from "../Redux/Actions/InputAction";
 
 export default function GraphDataInput() {
@@ -21,7 +23,7 @@ export default function GraphDataInput() {
           prefix={`${label} : `}
           key={label}
           id={label}
-          placeholder={"Enter data"}
+          placeholder={"Enter Data"}
           type="number"
           onChange={(e) => handleDataInput(e)}
         />
@@ -30,11 +32,11 @@ export default function GraphDataInput() {
     return inputData.selectedLabels.length ? (
       <div className="graphType">
         <p style={{ fontWeight: "bold", margin: "8px 0px 8px 0px" }}>
-          Update Graph Data :
+          Update Labels Data :
         </p>
         {dataMap}
         <Button type="primary" onClick={handleFinalData}>
-          Generate Graph
+          Preview Pdf
         </Button>
       </div>
     ) : null;
@@ -52,8 +54,10 @@ export default function GraphDataInput() {
       (label) => inputData.currGraphData[label]
     );
     dispatch(update_graph_value(inputData.finalData));
+    dispatch(update_preview());
     dispatch(update_curr_graph_value({}));
     dispatch(label_selector([]));
+    dispatch(add_labels_option(null))
   };
 
   return <div>{renderDataMapping()}</div>;

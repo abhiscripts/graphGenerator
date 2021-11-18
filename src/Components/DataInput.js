@@ -5,12 +5,10 @@ import LabelSelector from "./LabelSelector";
 
 export default function DataInput() {
   return (
-      <div className="App">
-        <GraphSelector />
-        <div className="graphType">
-          <LabelSelector />
-          <GraphDataInput />
-        </div>
-      </div>
+    <div className="App">
+      <GraphSelector />
+      <LabelSelector />
+      <GraphDataInput />
+    </div>
   );
 }
