@@ -1,18 +1,26 @@
 import { Bar, Line, Pie, Doughnut } from "react-chartjs-2";
-import { backgroundColors, borderColors, chartOptions } from "./chartUtils";
+import { useSelector } from "react-redux";
+import {
+  backgroundColors,
+  borderColors,
+  chartOptions,
+} from "../Utils/chartUtils";
 import "./App.css";
 
-function GraphComponent(props) {
+function GraphComponent() {
+  const inputData = useSelector((state) => state.inputData);
   const data = {
-    labels: props.finalData.labels.length
-      ? props.finalData.labels
-      : props.selectedLabels,
+    labels: inputData.finalData.labels.length
+      ? inputData.finalData.labels
+      : inputData.selectedLabels,
     datasets: [
       {
         label: "Number of Votes",
-        data: props.finalData.data.length
-          ? props.finalData.data
-          : props.selectedLabels.map((label) => props.currGraphData[label]),
+        data: inputData.finalData.data.length
+          ? inputData.finalData.data
+          : inputData.selectedLabels.map(
+              (label) => inputData.currGraphData[label]
+            ),
         backgroundColor: backgroundColors,
         borderColor: borderColors,
         borderWidth: 1,
@@ -43,7 +51,7 @@ function GraphComponent(props) {
         </div>
       ),
     };
-    const graphSelections = props.selectedGraph.map((graph) => {
+    const graphSelections = inputData.selectedGraph.map((graph) => {
       return graphObj[graph];
     });
 

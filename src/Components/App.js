@@ -1,4 +1,5 @@
 import DataInput from "./DataInput";
+import GraphComponent from "./GraphComponent";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <h2>Graph Creator</h2>
       </div>
       <DataInput />
+      <GraphComponent />
     </div>
   );
 }

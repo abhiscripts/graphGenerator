@@ -2,7 +2,7 @@ import React from "react";
 //import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Checkbox } from "antd";
-import { optionsGraph } from "./checkboxOptions";
+import { optionsGraph } from "../Utils/checkboxOptions";
 import { graph_selector } from "../Redux/Actions/InputAction";
 import "antd/dist/antd.css";
 import "./App.css";

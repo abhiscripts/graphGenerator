@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Checkbox, Input, Button } from "antd";
 import { PlusCircleTwoTone } from "@ant-design/icons";
-import { optionLabels } from "./checkboxOptions";
+import { optionLabels } from "../Utils/checkboxOptions";
 import { label_selector } from "../Redux/Actions/InputAction";
 import "antd/dist/antd.css";
 import "./App.css";
